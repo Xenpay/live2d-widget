@@ -21,12 +21,7 @@ function loadWidget(config) {
 			<div id="waifu-tips"></div>
 			<canvas id="live2d" width="800" height="800"></canvas>
 			<div id="waifu-tool">
-				<span class="fa fa-lg fa-comment"></span>
-				<span class="fa fa-lg fa-paper-plane"></span>
-				<span class="fa fa-lg fa-user-circle"></span>
-				<span class="fa fa-lg fa-street-view"></span>
-				<span class="fa fa-lg fa-camera-retro"></span>
-				<span class="fa fa-lg fa-info-circle"></span>
+				
 				<span class="fa fa-lg fa-times"></span>
 			</div>
 		</div>`);
@@ -42,7 +37,7 @@ function loadWidget(config) {
 	let userAction = false,
 		userActionTimer,
 		messageTimer,
-		messageArray = ["好久不见，日子过得好快呢……", "大坏蛋！你都多久没理人家了呀，嘤嘤嘤～", "嗨～快来逗我玩吧！", "拿小拳拳锤你胸口！", "记得把小家加入 Adblock 白名单哦！"];
+		messageArray = ["Lama tidak bertemu, hidup berlalu begitu cepat...", "Orang jahat besar! Sudah berapa lama kamu mengabaikan orang, bersenandung~", "Hei~ Ayo bermain denganku!", "Ambil tinju kecil dan palu dada Anda!", "Ingatlah untuk menambahkan Xiaojia ke daftar putih Adblock!"];
 	window.addEventListener("mousemove", () => userAction = true);
 	window.addEventListener("keydown", () => userAction = true);
 	setInterval(() => {
@@ -72,7 +67,7 @@ function loadWidget(config) {
 		document.querySelector("#waifu-tool .fa-user-circle").addEventListener("click", loadOtherModel);
 		document.querySelector("#waifu-tool .fa-street-view").addEventListener("click", loadRandModel);
 		document.querySelector("#waifu-tool .fa-camera-retro").addEventListener("click", () => {
-			showMessage("照好了嘛，是不是很可爱呢？", 6000, 9);
+			showMessage("Sudah diambil, bukankah itu lucu?", 6000, 9);
 			Live2D.captureName = "photo.png";
 			Live2D.captureFrame = true;
 		});
@@ -81,7 +76,7 @@ function loadWidget(config) {
 		});
 		document.querySelector("#waifu-tool .fa-times").addEventListener("click", () => {
 			localStorage.setItem("waifu-display", Date.now());
-			showMessage("愿你有一天能与重要的人重逢。", 2000, 11);
+			showMessage("Semoga kamu bersatu kembali dengan seseorang yang penting suatu hari nanti.", 2000, 11);
 			document.getElementById("waifu").style.bottom = "-500px";
 			setTimeout(() => {
 				document.getElementById("waifu").style.display = "none";
@@ -91,13 +86,13 @@ function loadWidget(config) {
 		const devtools = () => {};
 		console.log("%c", devtools);
 		devtools.toString = () => {
-			showMessage("哈哈，你打开了控制台，是想要看看我的小秘密吗？", 6000, 9);
+			showMessage("Haha, kamu menyalakan konsol, apakah kamu ingin melihat rahasia kecilku?", 6000, 9);
 		};
 		window.addEventListener("copy", () => {
-			showMessage("你都复制了些什么呀，转载要记得加上出处哦！", 6000, 9);
+			showMessage("Apa yang telah Anda salin, ingatlah untuk menambahkan sumber saat mencetak ulang!", 6000, 9);
 		});
 		window.addEventListener("visibilitychange", () => {
-			if (!document.hidden) showMessage("哇，你终于回来了～", 6000, 9);
+			if (!document.hidden) showMessage("Wow, akhirnya kamu kembali~", 6000, 9);
 		});
 	})();
 
@@ -105,24 +100,24 @@ function loadWidget(config) {
 		let text;
 		if (location.pathname === "/") { // 如果是主页
 			const now = new Date().getHours();
-			if (now > 5 && now <= 7) text = "早上好！一日之计在于晨，美好的一天就要开始了。";
-			else if (now > 7 && now <= 11) text = "上午好！工作顺利嘛，不要久坐，多起来走动走动哦！";
-			else if (now > 11 && now <= 13) text = "中午了，工作了一个上午，现在是午餐时间！";
-			else if (now > 13 && now <= 17) text = "午后很容易犯困呢，今天的运动目标完成了吗？";
-			else if (now > 17 && now <= 19) text = "傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红～";
-			else if (now > 19 && now <= 21) text = "晚上好，今天过得怎么样？";
-			else if (now > 21 && now <= 23) text = ["已经这么晚了呀，早点休息吧，晚安～", "深夜时要爱护眼睛呀！"];
-			else text = "你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？";
+			if (now > 5 && now <= 7) text = "Selamat pagi! Rencana hari adalah di pagi hari, dan hari yang indah akan segera dimulai.";
+			else if (now > 7 && now <= 11) text = "Selamat pagi! Pekerjaan berjalan dengan baik, jangan duduk lama-lama, bangun dan lebih banyak bergerak!";
+			else if (now > 11 && now <= 13) text = "Sudah siang, setelah pagi kerja, waktunya makan siang!";
+			else if (now > 13 && now <= 17) text = "Sore hari mudah mengantuk. Sudahkah Anda menyelesaikan target olahraga Anda hari ini?";
+			else if (now > 17 && now <= 19) text = "Sudah malam! Pemandangan matahari terbenam di luar jendela sangat indah, tapi yang paling indah adalah matahari terbenam yang merah~";
+			else if (now > 19 && now <= 21) text = "Selamat malam bagaimana harimu?";
+			else if (now > 21 && now <= 23) text = ["Ini sudah sangat larut, istirahatlah lebih awal, selamat malam~", "Jaga matamu di tengah malam!"];
+			else text = "Apakah kamu seorang night owl? Jika kamu tidak tidur terlalu larut, apakah kamu bangun besok?";
 		} else if (document.referrer !== "") {
 			const referrer = new URL(document.referrer),
 				domain = referrer.hostname.split(".")[1];
-			if (location.hostname === referrer.hostname) text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
-			else if (domain === "baidu") text = `Hello！来自 百度搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&wd=")[1].split("&")[0]}</span> 找到的我吗？`;
-			else if (domain === "so") text = `Hello！来自 360搜索 的朋友<br>你是搜索 <span>${referrer.search.split("&q=")[1].split("&")[0]}</span> 找到的我吗？`;
-			else if (domain === "google") text = `Hello！来自 谷歌搜索 的朋友<br>欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
-			else text = `Hello！来自 <span>${referrer.hostname}</span> 的朋友`;
+			if (location.hostname === referrer.hostname) text =`Selamat membaca<span>「${document.title.split(" - ")[0]}」</span>`;
+			else if (domain === "baidu") text = `Halo! Teman dari pencarian Baidu<br>Apakah Anda menemukan saya dengan mencari <span>${referrer.search.split("&wd=")[1].split("&")[0]}</span>? `;
+			else if (domain === "so") text = `Halo! Teman dari Penelusuran 360<br>Apakah Anda menemukan saya dengan menelusuri <span>${referrer.search.split("&q=")[1].split("&")[0]}</span>? `;
+			else if (domain === "google") text = `Halo! Teman dari Google Penelusuran<br>Selamat datang di <span>"${document.title.split(" - ")[0]}"</span>`;
+			else text = `Halo! Teman dari <span>${referrer.hostname}</span>`;
 		} else {
-			text = `欢迎阅读<span>「${document.title.split(" - ")[0]}」</span>`;
+			text = `selamat membaca<span>「${document.title.split(" - ")[0]}」</span>`;
 		}
 		showMessage(text, 7000, 8);
 	})();
@@ -132,7 +127,7 @@ function loadWidget(config) {
 		fetch("https://v1.hitokoto.cn")
 			.then(response => response.json())
 			.then(result => {
-				const text = `这句一言来自 <span>「${result.from}」</span>，是 <span>${result.creator}</span> 在 hitokoto.cn 投稿的。`;
+				const text = `Kalimat ini berasal dari <span>“${result.from}”</span>, yang disumbangkan oleh <span>${result.creator}</span> di hitokoto.cn. `;
 				showMessage(result.hitokoto, 6000, 9);
 				setTimeout(() => {
 					showMessage(text, 4000, 9);
@@ -216,7 +211,7 @@ function loadWidget(config) {
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
 		} else {
 			loadlive2d("live2d", `${apiPath}get/?id=${modelId}-${modelTexturesId}`);
-			console.log(`Live2D 模型 ${modelId}-${modelTexturesId} 加载完成`);
+			console.log(`Live2D Model ${modelId}-${modelTexturesId} Pemuatan selesai`);
 		}
 	}
 
@@ -227,14 +222,14 @@ function loadWidget(config) {
 			if (!modelList) await loadModelList();
 			const target = randomSelection(modelList.models[modelId]);
 			loadlive2d("live2d", `${cdnPath}model/${target}/index.json`);
-			showMessage("我的新衣服好看嘛？", 4000, 10);
+			showMessage("Apakah gaun baruku terlihat bagus?", 4000, 10);
 		} else {
 			// 可选 "rand"(随机), "switch"(顺序)
 			fetch(`${apiPath}rand_textures/?id=${modelId}-${modelTexturesId}`)
 				.then(response => response.json())
 				.then(result => {
-					if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("我还没有其他衣服呢！", 4000, 10);
-					else loadModel(modelId, result.textures.id, "我的新衣服好看嘛？");
+					if (result.textures.id === 1 && (modelTexturesId === 1 || modelTexturesId === 0)) showMessage("Aku belum punya pakaian lain!", 4000, 10);
+					else loadModel(modelId, result.textures.id, "Apa baju baruku bagus？");
 				});
 		}
 	}
@@ -263,7 +258,7 @@ function initWidget(config, apiPath) {
 		};
 	}
 	document.body.insertAdjacentHTML("beforeend", `<div id="waifu-toggle">
-			<span>看板娘</span>
+			<span>Gadis Kanban</span>
 		</div>`);
 	const toggle = document.getElementById("waifu-toggle");
 	toggle.addEventListener("click", () => {
