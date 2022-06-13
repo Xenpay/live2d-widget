@@ -1,6 +1,6 @@
 /*
  * Live2D Widget
- * https://github.com/stevenjoezhang/live2d-widget
+ * https://github.com/Xenpay/live2d-widget
  */
 
 function loadWidget(config) {
